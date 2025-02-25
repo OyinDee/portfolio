@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyindamola Heritage Ajala - Full Stack Developer</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+    <div id="stars"></div>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">OHA</div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <div class="hero-left">
+                <span class="greeting">Hi, I'm</span>
+                <h1 class="name">Oyindamola Àjàlá</h1>
+                <h2 class="hero-subtitle">Full Stack Developer</h2>
+                <p class="hero-description">
+                    A critical thinker, full stack developer and chess lover.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="cta-button primary">View Projects</a>
+                    <a href="https://github.com/Oyindee" target="_blank" class="cta-button secondary">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+                <div class="tech-stack-container">
+                    <div class="tech-label">Tech Stack</div>
+                    <div class="tech-icons">
+                        <i class="fab fa-react" title="React"></i>
+                        <i class="fab fa-node-js" title="Node.js"></i>
+                        <i class="fab fa-python" title="Python"></i>
+                        <i class="fab fa-js" title="JavaScript"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-image-container">
+                    <img src="https://res.cloudinary.com/dol47ucmj/image/upload/v1740230709/kvvilij8uvt1leh48fq0.jpg" 
+                         alt="Oyindamola Ajala" 
+                         style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+
+                </div>
+                <div class="about-text">
+                    <p>Full Stack Developer with a strong passion for backend development. Proficient in modern frontend frameworks and backend technologies, with expertise in building scalable server-side solutions. Currently pursuing BSc in Computer Science at FUOYE.</p>
+                    <div class="education">
+                        <h3>Education</h3>
+                        <ul>
+                            <li>BSc Computer Science (In Progress) - FUOYE</li>
+                            <li>Software Engineering Diploma - SQI</li>
+                            <li>Secondary Education - George Green Baptist College</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span data-progress="95">Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <span data-progress="90">NestJS</span>
+                        </div>
+                        <div class="skill-item">
+                            <span data-progress="85">.NET</span>
+                        </div>
+                        <div class="skill-item">
+                            <span data-progress="80">Django</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span data-progress="90">React</span>
+                        </div>
+                        <div class="skill-item">
+                            <span data-progress="85">Next.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <span data-progress="95">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-progress="90">Git</div>
+                        <div class="skill-item" data-progress="85">MongoDB</div>
+                        <div class="skill-item" data-progress="88">REST API</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Wispah</h3>
+                        <p class="project-description">
+                            Anonymous messaging platform with end-to-end encryption and customizable user experiences.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://wispah.vercel.app" target="_blank" class="project-link primary">View Live</a>
+                            <a href="https://github.com/Oyindee/wispah" target="_blank" class="project-link secondary">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Byte</h3>
+                        <p class="project-description">Modern food ordering platform designed specifically for university students.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://yumbyte.ng" target="_blank" class="project-link primary">View Live</a>
+                            <a href="#" target="_blank" class="project-link secondary">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">TFAuto</h3>
+                        <p class="project-description">Feature-rich automobile listing platform with advanced filtering and real-time updates.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://tfauto.vercel.app" target="_blank" class="project-link primary">View Live</a>
+                            <a href="#" target="_blank" class="project-link secondary">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">CaseRelay</h3>
+                        <p class="project-description">Secure police case handover platform for managing crime cases and maintaining evidence records.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://caserelay.vercel.app" target="_blank" class="project-link primary">View Live</a>
+                            <a href="#" target="_blank" class="project-link secondary">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">2025</span>
+                        <h3>NestJS Backend Developer</h3>
+                        <h4>Bellfast</h4>
+                        <p>Leading backend development initiatives using NestJS, focusing on API optimization and system architecture. Implementing scalable solutions that improved system performance.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">2021 - 2025</span>
+                        <h3>Assistant Head of Engineering</h3>
+                        <h4>Poolot</h4>
+                        <p>Managed a team of developers, oversaw project planning and architecture decisions. Successfully delivered 3 major projects ahead of schedule while maintaining code quality standards.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">2020 - Present</span>
+                        <h3>Freelance Developer</h3>
+                        <h4>Self-Employed</h4>
+                        <p>Building custom web solutions for clients globally. Specializing in full-stack development with React, Node.js, and modern web technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Based in Ogbomoso, Oyo State. I'm always open to discussing new projects, opportunities, and collaborations.</p>
+                    <div class="contact-methods">
+                        <a href="mailto:ajalaoyinda@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>ajalaoyinda@gmail.com</span>
+                        </a>
+                        <a href="https://linkedin.com/in/oyindamolaajala" target="_blank" class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://twitter.com/oyiindah" target="_blank" class="contact-method">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter Profile</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-availability">
+                    <div class="availability-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Availability</h4>
+                        <p>Open for freelance projects and full-time opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add custom alert component -->
+    <div id="custom-alert" class="custom-alert">
+        <div class="alert-content">
+            <i class="alert-icon"></i>
+            <p class="alert-message"></p>
+            <button class="alert-close">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Oyindamola Heritage Ajala</h3>
+                <p>Full Stack Developer with a deep passion for backend development, specializing in creating scalable and efficient solutions.</p>
+                <div class="social-links">
+                    <a href="https://github.com/Oyindee" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/oyindamolaajala" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/oyiindah" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section contact">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> ajalaoyinda@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Ogbomoso, Oyo State</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Oyindamola Heritage Ajala. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const contactForm = document.getElementById('contactForm');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // Handle form submission
+                });
+            }
+        });
+    </script>
+</body>
+</html>
