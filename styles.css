@@ -428,7 +428,6 @@ footer {
     display: flex;
     gap: 1.5rem;
     opacity: 0;
-    margin-left: -30px;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards 1.2s;
 }
