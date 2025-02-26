@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oyindamola Heritage Ajala - Full Stack Developer</title>
+    <title>Oyindamola Heritage Ajala</title>
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,9 +31,10 @@
     <section id="home">
         <div class="hero-content">
             <div class="hero-left">
-                <span class="greeting">Hi, I'm</span>
-                <h1 class="name">Oyindamola Àjàlá</h1>
-                <h2 class="hero-subtitle">Full Stack Developer</h2>
+                <h1 class="name">
+                    <span class="typing-name"></span>
+                    <span class="typing-cursor"></span>
+                </h1>
                 <p class="hero-description">
                     A critical thinker, full stack developer and chess lover.
                 </p>
@@ -44,7 +45,7 @@
                     </a>
                 </div>
                 <div class="tech-stack-container">
-                    <div class="tech-label">Tech Stack</div>
+                    <div class="tech-label"></div>
                     <div class="tech-icons">
                         <i class="fab fa-react" title="React"></i>
                         <i class="fab fa-node-js" title="Node.js"></i>
@@ -149,7 +150,6 @@
                         </div>
                         <div class="project-links">
                             <a href="https://wispah.vercel.app" target="_blank" class="project-link primary">View Live</a>
-                            <a href="https://github.com/Oyindee/wispah" target="_blank" class="project-link secondary">Code</a>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://yumbyte.ng" target="_blank" class="project-link primary">View Live</a>
-                            <a href="#" target="_blank" class="project-link secondary">Code</a>
+
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,6 @@
                         </div>
                         <div class="project-links">
                             <a href="https://tfauto.vercel.app" target="_blank" class="project-link primary">View Live</a>
-                            <a href="#" target="_blank" class="project-link secondary">Code</a>
                         </div>
                     </div>
                 </div>
@@ -197,7 +196,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://caserelay.vercel.app" target="_blank" class="project-link primary">View Live</a>
-                            <a href="#" target="_blank" class="project-link secondary">Code</a>
+
                         </div>
                     </div>
                 </div>
@@ -215,11 +214,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://backagainffs.netlify.app/" target="_blank" class="project-link primary">View Live</a>
-                            <a href="#" target="_blank" class="project-link secondary">Code</a>
+
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -289,7 +287,6 @@
         </div>
     </section>
 
-    <!-- Add custom alert component -->
     <div id="custom-alert" class="custom-alert">
         <div class="alert-content">
             <i class="alert-icon"></i>
@@ -327,7 +324,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Oyindamola Heritage Ajala. All rights reserved.</p>
+            <p>&copy; 2025 Oyindamola Heritage Ajala. All rights reserved.</p>
         </div>
     </footer>
 
@@ -358,7 +355,18 @@
             if (contactForm) {
                 contactForm.addEventListener('submit', function(event) {
                     event.preventDefault();
-                    // Handle form submission
+                });
+            }
+
+            const experienceSection = document.getElementById('experience');
+            if (experienceSection) {
+                experienceSection.style.display = 'block';
+                experienceSection.style.opacity = '1';
+                
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                timelineItems.forEach(item => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
                 });
             }
         });
