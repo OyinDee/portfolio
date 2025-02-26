@@ -1,25 +1,166 @@
-function createStars() {
-    const stars = document.getElementById('stars');
-    const numberOfStars = 800; // Increased from 400 to 800 stars
+// Simple function to create stars that will definitely work
+function createSimpleStars() {
+    const starsContainer = document.getElementById('stars');
     
-    for (let i = 0; i < numberOfStars; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
+    // Clear any existing stars
+    if (starsContainer) {
+        starsContainer.innerHTML = '';
         
-        // More varied star properties
-        const size = Math.random() * 4; // Increased max size to 4px
-        const twinkleDuration = 2 + Math.random() * 6; // More varied twinkle duration
+        // Create 300 stars - a good number for performance and aesthetics
+        const starCount = 300;
         
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.opacity = 0.1 + Math.random() * 0.9; // Increased maximum opacity
-        star.style.setProperty('--twinkle-duration', `${twinkleDuration}s`);
-        
-        stars.appendChild(star);
+        for (let i = 0; i < starCount; i++) {
+            // Create star element
+            const star = document.createElement('div');
+            
+            // Random star size class
+            const sizeRandom = Math.random();
+            if (sizeRandom < 0.6) {
+                star.classList.add('star', 'small');
+            } else if (sizeRandom < 0.9) {
+                star.classList.add('star', 'medium');
+            } else {
+                star.classList.add('star', 'large');
+            }
+            
+            // Random position
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            
+            // Random twinkling animation
+            const twinkleClass = Math.random() < 0.33 ? 'twinkle-1' : 
+                               Math.random() < 0.66 ? 'twinkle-2' : 'twinkle-3';
+            star.classList.add(twinkleClass);
+            
+            // Add random animation delay
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            
+            // Add to container
+            starsContainer.appendChild(star);
+        }
     }
 }
+
+// Function to create shooting stars
+function createShootingStars() {
+    const starsContainer = document.getElementById('stars');
+    
+    if (starsContainer) {
+        // Create a few shooting stars (not too many)
+        const shootingStarCount = 6;
+        
+        for (let i = 0; i < shootingStarCount; i++) {
+            setTimeout(() => {
+                // Create shooting star element
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                
+                // Set random position at top of screen
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * (window.innerHeight / 3); // Start in top third
+                
+                shootingStar.style.left = `${startX}px`;
+                shootingStar.style.top = `${startY}px`;
+                
+                // Set CSS variables for animation
+                const angle = Math.random() * 60 - 30; // -30 to 30 degrees
+                const duration = 1 + Math.random() * 2; // 1-3 seconds
+                const delay = Math.random() * 15; // 0-15 second delay
+                const tailLength = 50 + Math.random() * 100; // 50-150px
+                const starLength = tailLength * (0.5 + Math.random() * 0.5); // 50-100% of tail
+                const travelDistance = Math.max(window.innerWidth, window.innerHeight);
+                const travelDistanceY = travelDistance * Math.tan(angle * Math.PI / 180);
+                
+                shootingStar.style.setProperty('--angle', `${angle}deg`);
+                shootingStar.style.setProperty('--duration', `${duration}s`);
+                shootingStar.style.setProperty('--delay', `${delay}s`);
+                shootingStar.style.setProperty('--tail-length', `${tailLength}px`);
+                shootingStar.style.setProperty('--star-length', `${starLength}px`);
+                shootingStar.style.setProperty('--travel-distance', `${travelDistance}px`);
+                shootingStar.style.setProperty('--travel-distance-y', `${travelDistanceY}px`);
+                
+                // Add to container
+                starsContainer.appendChild(shootingStar);
+                
+                // Remove after animation completes
+                setTimeout(() => {
+                    shootingStar.remove();
+                    // Create a new star to replace this one
+                    createShootingStars();
+                }, (duration + delay) * 1000);
+                
+            }, i * 3000); // Stagger creation every 3 seconds
+        }
+    }
+}
+
+// Call on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Call our stars function
+    createSimpleStars();
+    
+    // Remove shooting stars
+    // createShootingStars(); 
+    
+    // Type out name animation
+    typeOutName();
+    
+    // Rest of your existing DOMContentLoaded code...
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.querySelector('i').classList.toggle('fa-bars');
+            navToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.querySelector('i').classList.add('fa-bars');
+                navToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+    }
+
+    // Close alert button
+    const alertCloseButton = document.querySelector('.alert-close');
+    if (alertCloseButton) {
+        alertCloseButton.addEventListener('click', () => {
+            document.getElementById('custom-alert').classList.remove('show');
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav); // Scroll event for active nav
+    initializeTheme();
+    animateSkills();
+    setupTypingAnimation();
+    initStarParallax();
+    
+    // Optional: add parallax effect to stars
+    if (window.matchMedia('(min-width: 768px)').matches) {
+        document.addEventListener('mousemove', (e) => {
+            const stars = document.querySelectorAll('.star');
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+            
+            stars.forEach((star, index) => {
+                // Make some stars move more than others
+                const depth = index % 5 === 0 ? 0.05 : 
+                             index % 3 === 0 ? 0.04 : 
+                             index % 2 === 0 ? 0.03 : 0.02;
+                
+                const moveX = mouseX * depth * window.innerWidth;
+                const moveY = mouseY * depth * window.innerHeight;
+                
+                star.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    }
+});
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -56,12 +197,19 @@ const themeToggle = document.getElementById('theme-toggle');
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
+    
+    // Check if themeToggle exists before calling updateThemeIcon
+    if (themeToggle) {
+        updateThemeIcon(savedTheme);
+    }
 }
 
 function updateThemeIcon(theme) {
+    if (!themeToggle) return;
     const icon = themeToggle.querySelector('i');
-    icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    if (icon) {
+        icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
 }
 
 if (themeToggle) {
@@ -101,6 +249,8 @@ function updateActiveNav() {
 // Custom alert function
 function showCustomAlert(message, type = 'success') {
     const alert = document.getElementById('custom-alert');
+    if (!alert) return;
+    
     const messageEl = alert.querySelector('.alert-message');
     const icon = alert.querySelector('.alert-icon');
     
@@ -148,6 +298,8 @@ async function sendEmail(formData) {
 // Enhanced typing animation
 function setupTypingAnimation() {
     const texts = document.querySelectorAll('.typing-text span');
+    if (texts.length === 0) return;
+    
     let currentIndex = 0;
     
     function updateText() {
@@ -221,56 +373,108 @@ scrollReveal.reveal('.footer-section', {
     origin: 'bottom'
 });
 
-// Initialize parallax effect for stars
+scrollReveal.reveal('#experience', {
+    delay: 200,
+    origin: 'bottom',
+    distance: '50px',
+    duration: 1000,
+    easing: 'ease-in-out'
+});
+
+scrollReveal.reveal('.timeline-item', {
+    interval: 200,
+    origin: 'bottom',
+    distance: '50px',
+    duration: 1000,
+    easing: 'ease-in-out'
+});
+
+// Initialize parallax effect for stars - Fixed version
 function initStarParallax() {
     const stars = document.getElementById('stars');
+    if (!stars) return;
+    
     const starElements = document.querySelectorAll('.star');
+    if (starElements.length === 0) return;
     
     document.addEventListener('mousemove', (e) => {
         const mouseX = (e.clientX / window.innerWidth - 0.5) * 20;
         const mouseY = (e.clientY / window.innerHeight - 0.5) * 20;
         
         requestAnimationFrame(() => {
-            starElements.forEach(star => {
-                const depth = parseFloat(star.style.transform.match(/translateZ\((\d+)px\)/)[1]) / 100;
+            starElements.forEach((star, index) => {
+                // Use index to create different depths
+                const depth = (index % 10) / 100 + 0.02;
                 const moveX = mouseX * depth;
                 const moveY = mouseY * depth;
-                star.style.transform = `translate(${moveX}px, ${moveY}px) translateZ(${depth * 100}px)`;
+                star.style.transform = `translate(${moveX}px, ${moveY}px)`;
             });
         });
     });
 }
 
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            navToggle.querySelector('i').classList.toggle('fa-bars');
-            navToggle.querySelector('i').classList.toggle('fa-times');
-        });
-
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                navToggle.querySelector('i').classList.add('fa-bars');
-                navToggle.querySelector('i').classList.remove('fa-times');
-            });
-        });
+// Type out name with animation
+function typeOutName() {
+    const nameElement = document.querySelector('.typing-name');
+    const cursorElement = document.querySelector('.typing-cursor');
+    
+    if (!nameElement || !cursorElement) return;
+    
+    const firstName = "Oyindamola";
+    const lastName = "Àjàlá";
+    let i = 0;
+    let isTypingLastName = false;
+    
+    // Clear any existing content
+    nameElement.textContent = '';
+    
+    // Make cursor visible
+    cursorElement.style.opacity = '1';
+    
+    // Prepare the container to accommodate two lines
+    nameElement.parentElement.style.minHeight = '7rem';
+    nameElement.style.width = '100%';
+    nameElement.style.textAlign = 'center';
+    
+    // Create separate spans for the first name, last name, and cursor
+    const firstNameSpan = document.createElement('div');
+    firstNameSpan.style.display = 'block';
+    nameElement.appendChild(firstNameSpan);
+    
+    const lastNameSpan = document.createElement('div');
+    lastNameSpan.style.display = 'block';
+    nameElement.appendChild(lastNameSpan);
+    
+    // Type effect
+    function typeLetter() {
+        if (!isTypingLastName && i < firstName.length) {
+            // Add the next letter of first name
+            firstNameSpan.textContent = firstName.substring(0, i + 1);
+            // Position cursor after the last typed character
+            firstNameSpan.appendChild(cursorElement);
+            i++;
+            setTimeout(typeLetter, 150);
+        } 
+        else if (!isTypingLastName && i === firstName.length) {
+            // First name is done, move to last name
+            isTypingLastName = true;
+            i = 0;
+            setTimeout(typeLetter, 400); // Slightly longer pause before last name
+        }
+        else if (isTypingLastName && i < lastName.length) {
+            // Add the next letter of last name
+            lastNameSpan.textContent = lastName.substring(0, i + 1);
+            // Position cursor after the last typed character
+            lastNameSpan.appendChild(cursorElement);
+            i++;
+            setTimeout(typeLetter, 150);
+        } 
+        else {
+            // When typing complete, keep cursor blinking
+            cursorElement.style.animation = 'blink 0.7s infinite';
+        }
     }
-
-    // Close alert button
-    document.querySelector('.alert-close').addEventListener('click', () => {
-        document.getElementById('custom-alert').classList.remove('show');
-    });
-
-    window.addEventListener('scroll', updateActiveNav); // Scroll event for active nav
-    initializeTheme();
-    animateSkills();
-    setupTypingAnimation();
-    initStarParallax();
-    createStars();
-});
+    
+    // Start typing after a brief delay
+    setTimeout(typeLetter, 800);
+}
