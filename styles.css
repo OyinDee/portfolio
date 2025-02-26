@@ -908,7 +908,6 @@ footer {
         margin-top: 1rem;
     }
 
-    /* Existing timeline mobile styles */
     .timeline::before {
         left: 30px;
     }
@@ -930,7 +929,6 @@ footer {
         right: auto;
     }
     
-    /* New improvements for mobile experience */
     .timeline {
         padding: 10px;
         margin: 20px auto;
@@ -989,7 +987,7 @@ footer {
     }
     
     .project-link.primary {
-        margin-left: -0.7rem; /* Reset margin on mobile when buttons are stacked */
+        margin-left: -0.7rem;
     }
     
     .project-card .project-links {
@@ -1142,7 +1140,7 @@ footer {
 }
 
 .nav-toggle {
-    display: none !important; /* Override any other display properties */
+    display: none !important;
     background: rgba(0, 123, 255, 0.1);
     border: none;
     color: #fff;
@@ -1225,17 +1223,16 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(14, 14, 18, 0.95); /* Match nav background */
+        background: rgba(14, 14, 18, 0.95);
         backdrop-filter: blur(12px) saturate(180%);
         -webkit-backdrop-filter: blur(12px) saturate(180%);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         border-radius: 0 0 15px 15px;
-        z-index: 999; /* Just below nav-content */
+        z-index: 999;
     }
 }
 
-/* Add the missing animation for timeline items */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1247,7 +1244,6 @@ footer {
     }
 }
 
-/* Add some margin to the experience section for better visibility */
 #experience {
     margin-top: 80px;
     margin-bottom: 80px;
